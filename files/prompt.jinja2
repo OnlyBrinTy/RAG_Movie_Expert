@@ -1,0 +1,32 @@
+You will be given top {{ k }} movies that are best-fit for the user alongside the user's preferred genre, movie description, and additional preferences. Analyze these movies and select a single movie that fits the user's preferences the best.
+
+# User's preferences
+Genre: {{ genre }}
+Movie description: {{ overview }}
+Additional preferences: {{ add_info }}
+
+
+# Top {{ k }} Recommended Movies
+{% for i, row in movies.iterrows() %}
+{{ i + 1 }}.
+    Title: {{ row['Series_Title'] }}
+    Genre: {{ row['Genre'] }}
+    Overview: {{ row['Overview'] }}
+    IMDB Rating: {{ row['IMDB_Rating'] }}
+    Meta score: {{ row['Meta_score'] }}
+    Director: {{ row['Director'] }}
+    Cast: {{ row['Star1'] }}, {{ row['Star2'] }}, {{ row['Star3'] }}, {{ row['Star4'] }}
+    Year: {{ row['Released_Year'] }}
+    Length: {{ row['Runtime'] }}
+{% endfor %}
+
+## Instructions
+1. Carefully take into account the user’s stated preferences above.
+2. Pick exactly one of these {{ k }} movies that best fits the user’s additional info.
+3. Describe the movie and give a brief account of the movie.
+4. Shortly explain why this recommendation is the best match.
+
+## Notes:
+Speak to the user directly. Don't mention the list of top movies I gave you.
+Don't use markdown.
+Be as concise as possible.
